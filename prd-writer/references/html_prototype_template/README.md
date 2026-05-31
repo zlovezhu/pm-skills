@@ -16,9 +16,13 @@
 
 1. 在 PRD 同目录创建 `prototype/` 子目录
 2. 复制 `styles.css` 到 `prototype/styles.css`
-3. **设计规范对齐（重要，C 分支必走一步）**：问用户有没有团队设计规范；
-   - 有 → 按 `design_tokens_example.md` 的结构提取最小集，落到 `prototype/design_tokens.md`，并刷 `styles.css` 顶部 `:root` 变量
-   - 没有 → 用模板默认配色，跳过这一步
+3. **设计规范对齐（重要，C 分支必走一步，默认沿用全局规范）**：
+   - 检查 `~/.workbuddy/skills/prd-writer/team_design_tokens.md`
+   - **存在** → 默认沿用，把 token 值刷到 `prototype/styles.css` 顶部 `:root`，**不再追问用户**，仅一句话告知"按之前沉淀的 X 规范"
+   - **不存在（首次）** → 问用户「有没有团队设计规范」；
+     - 给了 → 按 `design_tokens_example.md` 的结构提取最小集，沉淀到全局 `team_design_tokens.md`（跨项目共享），下次默认沿用
+     - 没有 → 用模板默认配色，**不创建空文件**
+   - **用户主动说"这次换一套 / 改一下"** → 临时覆盖：在当前 PRD 内写 `design_tokens.local.md`，不动全局；除非用户明说"以后都用新的"
 4. 基于 `_page_template.html` 为每个核心页生成一个 HTML
 5. 生成 `index.html` 导航页串起所有原型页
 
@@ -27,7 +31,14 @@
 - `styles.css`：共享样式，灰白配色 + 简单布局；顶部用 CSS 变量挂主色 / 字号 / 控件高度等，方便对接团队设计规范
 - `_page_template.html`：单个页面模板
 - `_index_template.html`：导航页模板
-- `design_tokens_example.md`：**设计规范对齐参考样本**——展示 AI 应该按什么粒度从用户提供的规范图里提取 token，作为 `prototype/design_tokens.md` 的写法参考
+- `design_tokens_example.md`：**设计规范对齐参考样本**——展示 AI 应该按什么粒度从用户提供的规范图里提取 token，作为全局 `team_design_tokens.md`（或当前 PRD 的 `design_tokens.local.md`）的写法参考
+
+## 全局规范文件
+
+- 路径：`~/.workbuddy/skills/prd-writer/team_design_tokens.md`
+- 跨项目共享，跨 PRD 沿用
+- 用户首次给规范时由 Skill 创建；之后每次画原型默认读取
+- 用户要换规范时，区分"临时覆盖（local 文件）"和"永久更新（动全局并写变更记录）"
 
 ## 风格底线
 
