@@ -131,6 +131,8 @@ cp -r /path/to/pm-skills/prd-writer .claude/skills/
 
 **适合接的下游**：TAPD MCP / TAPD OpenAPI。
 
+> **不用 TAPD 也能跑**：本 Skill 默认对接 TAPD，但工作流逻辑（判断单类型 / 字段模板 / 日志分档 / 回执格式）跟具体平台无关。如果你团队用 Jira、禅道、Worktile、PingCode、GitHub Issues 等其他需求管理工具，把 `references/tapd_field_mapping.md` 里的字段名和取值对照换成对应工具的字段，再把"适合接的下游"换成对应工具的 API 或 MCP 即可。后续会抽出一个 `field_mapping.local.md` 让换工具更方便。
+
 ### 2. prd-context-fetch —— PRD 撰写前置检索
 
 **输入**：要写的需求大致主题或 TAPD 单 ID
@@ -190,7 +192,7 @@ cp -r /path/to/pm-skills/prd-writer .claude/skills/
 
 | 类别 | 在哪些文件里 | 怎么改 |
 |---|---|---|
-| 模块名（工作台 / 采集器 / xxx 等） | 各 `SKILL.md`、`tapd_field_mapping.md` | 改成你产品的实际模块划分 |
+| 模块名 | 各 `SKILL.md`、`tapd_field_mapping.md` | 改成你产品的实际模块划分 |
 | TAPD 项目 ID / 字段配置 | `tapd-requirement-record/references/tapd_field_mapping.md` | 改成你团队的 TAPD workspace_id 和字段映射 |
 | 知识库目录结构 | `prd-context-fetch/references/search_strategy.md`、`case-distill/references/*.md` | 默认按 PARA + 三层（raw/wiki/card），不用 PARA 的话改成你自己的目录 |
 | 默认处理人 | `tapd-requirement-record/SKILL.md` | 默认填当前用户，要改成别人需要在 SKILL.md 里调 |
