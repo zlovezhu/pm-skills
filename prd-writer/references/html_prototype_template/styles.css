@@ -2,7 +2,36 @@
    <YOUR_PROJECT> 低保真原型共享样式
    配色：灰白为主 + 单一蓝色主色
    原则：不追求好看，只表达结构和交互
+
+   设计规范对齐：
+   - 如果用户提供了团队设计规范，把 token 写进下方 :root，
+     原型页用 var(--pf-color-primary) 这种方式引用
+   - 提取规则参考 design_tokens_example.md
+   - 没有规范时，沿用下面默认值即可
    ============================================ */
+
+:root {
+  /* 默认 token —— 用户提供规范时按 design_tokens.md 覆盖 */
+  --pf-color-primary: #0066cc;
+  --pf-color-danger: #d9363e;
+  --pf-color-text-primary: #333;
+  --pf-color-text-secondary: #666;
+  --pf-color-text-tertiary: #999;
+  --pf-color-text-disabled: #c7c7cc;
+  --pf-color-bg-page: #fafafa;
+  --pf-color-bg-card: #ffffff;
+  --pf-color-border: #e5e5e5;
+
+  --pf-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "PingFang SC", "Microsoft YaHei", sans-serif;
+  --pf-font-size-body: 14px;
+  --pf-font-size-aux: 12px;
+
+  --pf-control-height: 32px;
+  --pf-radius: 4px;
+  --pf-spacing-page: 24px;
+  --pf-spacing-card: 16px;
+}
 
 * {
   box-sizing: border-box;
@@ -11,12 +40,11 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
-    "Microsoft YaHei", sans-serif;
-  font-size: 14px;
+  font-family: var(--pf-font-family);
+  font-size: var(--pf-font-size-body);
   line-height: 1.6;
-  color: #333;
-  background: #fafafa;
+  color: var(--pf-color-text-primary);
+  background: var(--pf-color-bg-page);
 }
 
 /* ---------- 页面容器 ---------- */

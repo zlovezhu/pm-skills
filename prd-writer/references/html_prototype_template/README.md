@@ -16,14 +16,18 @@
 
 1. 在 PRD 同目录创建 `prototype/` 子目录
 2. 复制 `styles.css` 到 `prototype/styles.css`
-3. 基于 `_page_template.html` 为每个核心页生成一个 HTML
-4. 生成 `index.html` 导航页串起所有原型页
+3. **设计规范对齐（重要，C 分支必走一步）**：问用户有没有团队设计规范；
+   - 有 → 按 `design_tokens_example.md` 的结构提取最小集，落到 `prototype/design_tokens.md`，并刷 `styles.css` 顶部 `:root` 变量
+   - 没有 → 用模板默认配色，跳过这一步
+4. 基于 `_page_template.html` 为每个核心页生成一个 HTML
+5. 生成 `index.html` 导航页串起所有原型页
 
 ## 文件清单
 
-- `styles.css`：共享样式，灰白配色 + 简单布局
+- `styles.css`：共享样式，灰白配色 + 简单布局；顶部用 CSS 变量挂主色 / 字号 / 控件高度等，方便对接团队设计规范
 - `_page_template.html`：单个页面模板
 - `_index_template.html`：导航页模板
+- `design_tokens_example.md`：**设计规范对齐参考样本**——展示 AI 应该按什么粒度从用户提供的规范图里提取 token，作为 `prototype/design_tokens.md` 的写法参考
 
 ## 风格底线
 
