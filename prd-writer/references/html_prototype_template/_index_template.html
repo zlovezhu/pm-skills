@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<!--
+  @prd-file: {PRD 文件名}
+  @last-sync: {版本号} / {同步日期}
+  本页是原型导航页，按 PRD 章节顺序串起所有原型页面
+-->
+<head>
+  <meta charset="UTF-8">
+  <title>原型导航 - {PRD 名称}</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="pf-page">
+    <div class="pf-header">
+      <h1>{PRD 名称} - 原型导航</h1>
+      <span style="color:#999; font-size:13px;">同步至 {版本号}</span>
+    </div>
+
+    <p style="color:#666; margin-bottom: 16px;">
+      本原型为低保真版本，仅用于表达流程和交互，视觉细节由设计同学在 Figma 阶段补全。
+    </p>
+
+    <ul class="pf-nav-list">
+      <li>
+        <a href="{页面英文名1}.html">
+          {页面中文名 1}
+          <span class="pf-nav-anchor">→ PRD {锚点ID 1}</span>
+        </a>
+      </li>
+      <li>
+        <a href="{页面英文名2}.html">
+          {页面中文名 2}
+          <span class="pf-nav-anchor">→ PRD {锚点ID 2}</span>
+        </a>
+      </li>
+      <!-- 按需追加 -->
+    </ul>
+  </div>
+</body>
+</html>

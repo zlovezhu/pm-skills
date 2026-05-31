@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<!--
+  @prd: {锚点ID，如 feat-2-1} {页面中文名}
+  @prd-file: {PRD 文件名，如 prd-xxx.md}
+  @last-sync: {版本号，如 v1.2} / {同步日期，如 2026-05-19}
+-->
+<head>
+  <meta charset="UTF-8">
+  <title>{页面标题} - <YOUR_PROJECT> 低保真原型</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="pf-page">
+
+    <!-- 顶部 -->
+    <div class="pf-header">
+      <h1>{页面标题}</h1>
+      <button class="pf-button-primary">主操作</button>
+    </div>
+
+    <!-- 工具栏：搜索 + 筛选 -->
+    <div class="pf-toolbar">
+      <input type="text" placeholder="搜索...">
+      <select>
+        <option>全部状态</option>
+      </select>
+      <button class="pf-button-secondary">筛选</button>
+    </div>
+
+    <!-- 列表（示例：表格形式） -->
+    <table class="pf-table">
+      <thead>
+        <tr>
+          <th>名称</th>
+          <th>状态</th>
+          <th>更新时间</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>示例数据 1</td>
+          <td><span class="pf-tag pf-tag-success">正常</span></td>
+          <td>2026-05-19</td>
+          <td>
+            <button class="pf-button-secondary">编辑</button>
+            <button class="pf-button-danger">删除</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 分页 -->
+    <div class="pf-pagination">
+      <span>共 1 条</span>
+      <button>上一页</button>
+      <span>1 / 1</span>
+      <button>下一页</button>
+    </div>
+
+    <!-- 空状态（条件渲染示例，需要时取消下面的注释） -->
+    <!--
+    <div class="pf-empty">
+      暂无数据，请点击右上角【新建】添加。
+    </div>
+    -->
+
+    <!-- 弹窗（默认隐藏，演示时取消下面的注释） -->
+    <!--
+    <div class="pf-modal-overlay">
+      <div class="pf-modal">
+        <div class="pf-modal-header">弹窗标题</div>
+        <div class="pf-modal-body">
+          <p>弹窗内容描述...</p>
+        </div>
+        <div class="pf-modal-footer">
+          <button class="pf-button-secondary">取消</button>
+          <button class="pf-button-primary">确认</button>
+        </div>
+      </div>
+    </div>
+    -->
+
+  </div>
+
+  <p style="text-align:center; color:#999; font-size:12px; margin: 20px 0;">
+    ← <a href="index.html">返回原型导航</a>
+  </p>
+</body>
+</html>
